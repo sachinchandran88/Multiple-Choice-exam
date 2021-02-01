@@ -1,0 +1,63 @@
+
+<style>
+  
+    .wrapper {
+        max-width: 550px;
+        border-radius: 10px;
+        margin: 50px auto;
+        padding: 20px;
+        box-shadow: 20px 20px 80px rgb(206, 206, 206)
+    }
+    </style>  
+  <h3>Questions</h3>
+  <div class="container-fluid md-5 p-5" >
+  <div class="row" >      
+  <div class="col-6">
+    <div style="text-align: right;">
+     <button class="btn btn-success" (click)=add() >Add New</button>
+     </div>
+         <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Question</th>
+                  <th scope="col">Choice1</th>
+                  <th scope="col">Choice2</th>
+                  <th scope="col">Choice3</th>
+                  <th scope="col">Answer</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ques of questions">
+                    <td>{{ques.id}}</td>
+                    <td>{{ques.question}}</td>
+                    <td>{{ques.choice1}}</td>
+                    <td>{{ques.choice2}}</td>
+                    <td>{{ques.choice3}}</td>
+                    <td>{{ques.answer}}</td>
+                    <td><button class="btn btn-primary" (click)="edit(ques.id)">Edit</button></td>
+                    <td><button class="btn btn-danger" (click)="delete(ques.id)" >Delete</button></td>
+                </tr>
+           </tbody>
+           </table>
+  
+          </div>
+        
+          <div class="col-6 " *ngIf = "show">
+            <div class="wrapper bg-white">
+              <div style="text-align: right;">
+              <button class="btn btn-danger" >
+                <span aria-hidden="true" (click)="close()">&times;</span>
+              </button>
+              </div>
+            <app-crud [editId]="Quesid" (newRow)="onSubmit($event)" ></app-crud>
+            </div>
+            </div> 
+        </div>
+        </div>
+       
+  
+  <router-outlet></router-outlet>
+  

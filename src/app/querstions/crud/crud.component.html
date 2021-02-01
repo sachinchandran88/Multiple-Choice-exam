@@ -1,0 +1,92 @@
+ 
+ <h3>Registration</h3>
+ <form *ngIf = "questionForm" [formGroup]="questionForm" (ngSubmit)="onSubmit()" >
+    <input type="hidden"
+    id = "id"
+    name= "id"
+    formControlName ="id"
+    >
+      <div class="row p-3"> 
+        <div class="col-sm-3" >       
+            <label for="name">Question</label>
+        </div> 
+        <div class="col-sm-6"> 
+           <textarea class="form-control"
+            name="question"
+            id = "question"
+            formControlName = "question"
+            >
+           </textarea>
+        </div>   
+       
+        </div> 
+       
+        <div class="row p-3">
+         <div class="col-sm-3"> 
+         <label for="name">Choice1</label>
+       </div> 
+       <div class="col-sm-6">
+        <input type="text"
+          class="form-control input-sm"
+          name="choice1"  
+          id="choice1" 
+          formControlName = "choice1" />
+       
+        <input type="radio" 
+          name="answer" 
+          value="1" 
+          id="answer1"
+          formControlName = "answer"/> IsCorrect? 
+       </div>
+       </div>
+
+       <div class="row p-3">
+         <div class="col-sm-3"> 
+         <label for="name">Choice2</label>
+       </div> 
+       <div class="col-sm-6"> 
+        <input type="text" 
+         class="form-control input-sm" 
+         name="choice2" 
+         id="choice2" 
+         formControlName = "choice2"/>
+       
+        <input type="radio" 
+         name="answer" 
+         value="2" 
+         id="answer1"
+         formControlName = "answer"/> IsCorrect? 
+       </div>
+      
+       </div>
+
+       <div class="row p-3">
+         <div class="col-sm-3"> 
+         <label for="name">Choice3</label>
+       </div> 
+       <div class="col-sm-6"> 
+        <input type="text"
+          class="form-control input-sm"
+          name="choice3"  
+          id="choice3"
+          formControlName = "choice3" />
+        
+       <input type="radio" 
+          name="answer" 
+          value="3" 
+          id="answer1"
+          formControlName = "answer"/> IsCorrect? 
+       </div>
+       
+       </div>
+        
+       <div class="row" >
+            <div class="col-sm-3">
+             <button class="btn btn-danger" type="button" (click)="clear()" >Clear</button>
+            </div>
+           <div class="col-sm-4"> 
+             <button class="btn btn-success"  type="submit">Submit</button>
+           </div>
+       </div>
+      
+  </form> 

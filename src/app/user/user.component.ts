@@ -12,14 +12,9 @@ export class UserComponent implements OnInit {
   show : boolean  = false;
   users: UserModel[] = [] ;  
   userdata :number;
-  constructor(public service : UsersService){    
-    this.service.subject.subscribe(data=>{
-      this.users.push(data);
-    }) ;
-  }
-
-  
-   
+  constructor(public service : UsersService){ 
+       
+  }   
    ngOnInit()
    { 
      this.getdata();

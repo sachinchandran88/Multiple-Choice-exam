@@ -10,12 +10,17 @@ import {MatInputModule} from '@angular/material/input';
 import { UserComponent } from './user/user.component';
 import{GetComponent} from './user/get/get.component';
 import { UsersService } from './service/users.service';
-
+import {QuestionService}from './service/question.service';
+import { QuerstionsComponent } from './querstions/querstions.component';
+import { MCQModule } from './mcq/mcq.module';
+import { CrudComponent } from './querstions/crud/crud.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     GetComponent,
+    QuerstionsComponent,
+    CrudComponent,
   
   ],
   imports: [
@@ -25,9 +30,10 @@ import { UsersService } from './service/users.service';
     MatInputModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MCQModule,
   ],
-  providers: [UsersService],
+  providers: [UsersService , QuestionService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
