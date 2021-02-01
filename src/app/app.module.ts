@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatInputModule} from '@angular/material/input';
 import { UserComponent } from './user/user.component';
-import { DeleteComponent } from './user/delete/delete.component';
 import{GetComponent} from './user/get/get.component';
 import { UsersService } from './service/users.service';
 
@@ -16,7 +15,6 @@ import { UsersService } from './service/users.service';
   declarations: [
     AppComponent,
     UserComponent,
-    DeleteComponent,
     GetComponent,
   
   ],
