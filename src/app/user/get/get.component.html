@@ -1,0 +1,96 @@
+ 
+
+  <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)=" userForm.valid && onSubmit()">
+     <input type="hidden"
+     id = "user_id"
+     name= "user_id"
+     formControlName ="user_id"
+     >
+       <div class="row p-3"> 
+         <div class="col-sm-3" >       
+             <label for="name">First Name</label>
+         </div> 
+         <div class="col-sm-6"> 
+         <input type="text"  
+             class="form-control" 
+             id="first_name" 
+             name="first_name"
+             formControlName ="first_name"
+             [ngClass]="{'is-invalid':userForm.get('first_name').touched && userForm.get('first_name').invalid}"
+             >
+          <div class="invalid-feedback">
+            <div>First Name is Required</div>
+          </div>   
+         </div>   
+        
+         </div> 
+        
+         <div class="row p-3">
+          <div class="col-sm-3"> 
+          <label for="name">Last Name</label>
+        </div> 
+        <div class="col-sm-6"> 
+            <input type="text" 
+            class="form-control" 
+            id="last_name"
+            formControlName ="last_name"
+            [ngClass]="{'is-invalid':userForm.get('last_name').touched && userForm.get('last_name').invalid}"
+            name="last_name">
+            <div class="invalid-feedback">
+              <div>Last Name is Required</div>
+            </div>  
+        </div>
+        </div>
+
+        <div class="row p-3">
+          <div class="col-sm-3"> 
+          <label for="name">Email</label>
+        </div> 
+        <div class="col-sm-6"> 
+            <input type="email"  
+            class="form-control" 
+            id="email"
+            formControlName ="email"
+            [ngClass]="{'is-invalid':userForm.get('email').touched && userForm.get('email').invalid}"
+            name="email">
+            <div 
+             *ngIf="userForm.get('email').touched && userForm.get('email').invalid"
+             class="invalid-feedback">
+              <div *ngIf = "userForm.get('email').errors.required">Email is Required</div>
+              <div *ngIf = "userForm.get('email').errors.email"> Invalid Email !!</div>
+            </div>  
+        </div>
+       
+        </div>
+
+        <div class="row p-3">
+          <div class="col-sm-3"> 
+          <label for="name">Password</label>
+        </div> 
+        <div class="col-sm-6"> 
+            <input type="password"
+              class="form-control"
+              id="password"
+              formControlName ="password"
+              [ngClass]="{'is-invalid':userForm.get('password').touched && userForm.get('password').invalid}"
+              name="password">
+              <div 
+              *ngIf = "userForm.get('password').touched && userForm.get('password').invalid"
+              class="invalid-feedback">
+                <div *ngIf = "userForm.get('password').errors.required" >Password is Required</div>
+                <div *ngIf = "userForm.get('password').errors.minLength" >Password need atleast 4 charecters</div>
+              </div>  
+        </div>
+        
+        </div>
+         
+        <div class="row" >
+             <div class="col-sm-3">
+              <button class="btn btn-danger" type="button" (click)=clear()>Clear</button>
+             </div>
+            <div class="col-sm-4"> 
+              <button class="btn btn-success" [disabled]="!userForm.valid" type="submit">Submit</button>
+            </div>
+        </div>
+       
+   </form> 

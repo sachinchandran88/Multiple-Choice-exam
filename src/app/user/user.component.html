@@ -1,0 +1,59 @@
+<style>
+  
+  .wrapper {
+      max-width: 550px;
+      border-radius: 10px;
+      margin: 50px auto;
+      padding: 20px;
+      box-shadow: 20px 20px 80px rgb(206, 206, 206)
+  }
+  </style>  
+
+
+<div class="container-fluid md-5 p-5" >
+  <div class="row" >      
+<div class="col-6">
+  <div style="text-align: right;">
+   <button class="btn btn-success" (click)="btnAdd()">Add User</button>
+   </div>
+       <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor ="let user of users">
+                <td>{{user.user_id}}</td>
+                <td>{{user.first_name}}</td>
+                 <td>{{user.last_name}}</td>
+                 <td>{{user.email}}</td>
+                 <td><button class="btn btn-primary"(click)="onEdit(user.user_id)">Edit</button></td>
+                 <td><button class="btn btn-danger" (click)="onDelete(user.user_id)">Delete</button></td>
+        
+              </tr>
+         </tbody>
+         </table>
+
+        </div>
+        <div class="col-6 "*ngIf="show" >
+          <div class="wrapper bg-white">
+            <div style="text-align: right;">
+            <button class="btn btn-danger" (click)="close()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+          <app-get [userData] = "userdata" (newData)="onSubmit($event)" ></app-get>
+          </div>
+          </div> 
+
+      </div>
+      </div>
+     
+
+<router-outlet></router-outlet>
